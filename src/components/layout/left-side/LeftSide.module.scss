@@ -7,14 +7,27 @@
   display: flex;
   flex-direction: column;
   padding: 20px 0 0 0;
+  transition: all 0.3s;
 }
 
 .nav {
   display: flex;
   justify-content: center;
-  padding: 14px 0;
+  padding: 14px 34px;
   margin-bottom: 30px;
   border-right: 3px solid transparent;
+  border-left: 1px solid transparent;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  transition:
+    border 0.5s,
+    padding 0.5s;
+
+  div {
+    transition:
+      color 0.3s,
+      text-shadow 0.3s;
+  }
 }
 .active {
   border-right: 3px solid #0085ff;
@@ -24,10 +37,81 @@
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%),
     rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(15px);
+  transition:
+    text-shadow 0.3s,
+    color 0.3s;
+
+  div {
+    color: #0085ff !important;
+    text-shadow: 0px 0px 20px #0085ff;
+  }
 }
 
 .logo {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+  padding: 0 24px;
+}
+
+.leftsideActive {
+  width: 360px;
+  transition: all 0.3s linear;
+
+  a {
+    min-width: 170px;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 36px;
+    color: #000;
+    font-size: 17px;
+    font-weight: 400;
+    gap: 10px;
+    transition:
+      color 0.5s ease,
+      text-shadow 0.5s ease,
+      border 0.5s ease;
+  }
+
+  &:first-child {
+    div {
+      min-width: 170px;
+
+      span:first-child {
+        color: #000;
+        font-size: 16px;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+      span:last-child {
+        color: #c50140;
+        font-size: 16px;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+.activeButton {
+  cursor: pointer;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  padding: 14px 0;
+  margin-bottom: 20px;
+
+  svg {
+    transition: all 0.3s;
+    transform: rotateZ(0deg);
+  }
+}
+
+.isActiveButton {
+  justify-content: normal;
+  padding: 14px 36px;
+  svg {
+    transition: all 0.3s;
+    transform: rotateZ(180deg);
+  }
 }
