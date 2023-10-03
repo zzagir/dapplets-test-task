@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import styles from "./Dashboard.module.scss";
 import Loader from "../../loader/Loader";
 import Layout from "../../layout/Layout";
 
