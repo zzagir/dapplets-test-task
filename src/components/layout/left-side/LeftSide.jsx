@@ -1,13 +1,20 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import styles from "./LeftSide.module.scss";
 import { menu } from "./menu.data";
 import cn from "clsx";
 import { useState } from "react";
 import { TbArrowRight } from "react-icons/tb";
+import Cookies from "js-cookie";
 
 const LeftSide = () => {
   const [isActive, setIsActive] = useState(true);
+  const navigate = useNavigate();
   const { pathname } = useLocation();
+  const dontShowClick = () => {
+    Cookies.set("dontshow", false);
+    navigate("/");
+  };
+
   return (
     <div
       className={cn(styles.leftside, {
@@ -22,7 +29,7 @@ const LeftSide = () => {
       >
         <TbArrowRight fontSize={30} />
       </button>
-      <Link to={"/"} className={styles.logo}>
+      <Link onClick={dontShowClick} to={"/"} className={styles.logo}>
         <img src="./logo.png" alt="" />
         {isActive && (
           <div className={styles.logoText}>

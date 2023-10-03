@@ -1,8 +1,21 @@
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import styles from "./FirstScreen.module.scss";
+import Cookies from "js-cookie";
+import { useEffect } from "react";
 
 const FirstScreen = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (Cookies.get("dontshow") === "true") {
+      navigate("/dashboard");
+    }
+  }, []);
+
+  const dontShowClick = () => {
+    Cookies.set("dontshow", true);
+    navigate("/dashboard");
+  };
 
   return (
     <div className={styles.bg}>
@@ -24,7 +37,7 @@ const FirstScreen = () => {
         </span>
         <div className={styles.buttons}>
           <button onClick={() => navigate("/dashboard")}>Продолжить</button>
-          <button>Информация</button>
+          <button onClick={dontShowClick}>Больше не показывать</button>
         </div>
       </div>
     </div>
