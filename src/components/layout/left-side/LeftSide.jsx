@@ -5,11 +5,34 @@ import cn from "clsx";
 import { useState } from "react";
 import { TbArrowRight } from "react-icons/tb";
 import Cookies from "js-cookie";
+import { useClickAway } from "@uidotdev/usehooks";
 
 const LeftSide = () => {
   const [isActive, setIsActive] = useState(false);
   const navigate = useNavigate();
   const { pathname } = useLocation();
+
+  /*
+    Запоминает, открыт был sidebar или нет, и открывает или был открыт при выходе из сайта.
+  
+    useEffect(() => {
+      if (Cookies.get("handleMenu") === "true") {
+        setIsActive(true);
+      } else {
+        setIsActive(false);
+      }
+    }, [isActive]);
+    */
+
+  const ref = useClickAway(() => {
+    setIsActive(false);
+  });
+
+  const handleMenuClick = () => {
+    Cookies.set("handleMenu", !isActive);
+    setIsActive(!isActive);
+  };
+
   const dontShowClick = () => {
     Cookies.set("dontshow", false);
     navigate("/");
@@ -17,12 +40,13 @@ const LeftSide = () => {
 
   return (
     <div
+      ref={ref}
       className={cn(styles.leftside, {
         [styles.leftsideActive]: isActive,
       })}
     >
       <button
-        onClick={() => setIsActive(!isActive)}
+        onClick={handleMenuClick}
         className={cn(styles.activeButton, {
           [styles.isActiveButton]: isActive,
         })}
