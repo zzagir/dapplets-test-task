@@ -7,7 +7,7 @@ import { TbArrowRight } from "react-icons/tb";
 import Cookies from "js-cookie";
 
 const LeftSide = () => {
-  const [isActive, setIsActive] = useState(true);
+  const [isActive, setIsActive] = useState(false);
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const dontShowClick = () => {

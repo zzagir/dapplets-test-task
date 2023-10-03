@@ -10,7 +10,7 @@ const FirstScreen = () => {
     if (Cookies.get("dontshow") === "true") {
       navigate("/dashboard");
     }
-  }, []);
+  });
 
   const dontShowClick = () => {
     Cookies.set("dontshow", true);
