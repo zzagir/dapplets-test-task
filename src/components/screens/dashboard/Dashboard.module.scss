@@ -1,0 +1,110 @@
+.products {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  background: linear-gradient(180deg, rgba(185, 251, 255, 0.2) 0%, rgba(227, 220, 255, 0.2) 100%);
+  backdrop-filter: blur(15px);
+  margin: 30px;
+  padding: 20px;
+  gap: 10px;
+  height: 100%;
+}
+
+.box {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%),
+    rgba(255, 255, 255, 0.3);
+  box-shadow: 10px 10px 40px 0px rgba(156, 185, 222, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 12px 20px;
+  align-items: center;
+  position: sticky;
+  top: 10px;
+  z-index: 1;
+
+  &:first-child {
+    position: sticky;
+    top: 10px;
+    z-index: 2;
+    background: #fff;
+  }
+}
+
+.id {
+  width: 5%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.title {
+  width: 25%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #2a2a2a;
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.rating {
+  width: 10%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #565555;
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.stock {
+  width: 10%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #565555;
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.price {
+  width: 10%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #2a2a2a;
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.button {
+  width: 10%;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  border-radius: 50px;
+  background: #0085ff;
+  padding: 6px 20px;
+  gap: 10px;
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}

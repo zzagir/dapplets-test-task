@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
     <div className={styles.layout}>
       <LeftSide />
       {children}
-      <RightSide />
+      {/* <RightSide /> */}
     </div>
   );
 };
