@@ -2,10 +2,12 @@ import { useQuery } from "@tanstack/react-query";
 import Loader from "../../loader/Loader";
 import Layout from "../../layout/Layout";
 import styles from "./Dashboard.module.scss";
+import cn from "clsx";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   const { isLoading, error, data } = useQuery(
-    ["data"],
+    ["all data"],
     async () => {
       const data = await fetch("https://dummyjson.com/products").then((res) =>
         res.json()
@@ -24,36 +26,11 @@ const Dashboard = () => {
         <Layout>
           <div className={styles.products}>
             <div className={styles.box}>
-              <span
-                className={styles.id}
-                style={{ fontWeight: "700", color: "#2a2a2a" }}
-              >
-                id
-              </span>
-              <span
-                className={styles.title}
-                style={{ fontWeight: "700", color: "#2a2a2a" }}
-              >
-                title
-              </span>
-              <span
-                className={styles.rating}
-                style={{ fontWeight: "700", color: "#2a2a2a" }}
-              >
-                rating
-              </span>
-              <span
-                className={styles.stock}
-                style={{ fontWeight: "700", color: "#2a2a2a" }}
-              >
-                stock
-              </span>
-              <span
-                className={styles.price}
-                style={{ fontWeight: "700", color: "#2a2a2a" }}
-              >
-                price
-              </span>
+              <span className={cn(styles.id, styles.info)}>id</span>
+              <span className={cn(styles.title, styles.info)}>title</span>
+              <span className={cn(styles.rating, styles.info)}>rating</span>
+              <span className={cn(styles.stock, styles.info)}>stock</span>
+              <span className={cn(styles.price, styles.info)}>price</span>
               <span className={styles.stock}></span>
             </div>
             {data.products.map((product) => (
@@ -63,7 +40,9 @@ const Dashboard = () => {
                 <span className={styles.rating}>{product.rating}</span>
                 <span className={styles.stock}>{product.stock}</span>
                 <span className={styles.price}>{product.price}</span>
-                <button className={styles.button}>More info</button>
+                <Link className={styles.button} to={`/dashboard/${product.id}`}>
+                  More info
+                </Link>
               </div>
             ))}
           </div>

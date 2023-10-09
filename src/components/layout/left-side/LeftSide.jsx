@@ -6,6 +6,7 @@ import { useState } from "react";
 import { TbArrowRight } from "react-icons/tb";
 import Cookies from "js-cookie";
 import { useClickAway } from "@uidotdev/usehooks";
+import logo from "../../../../public/logo.png";
 
 const LeftSide = () => {
   const [isActive, setIsActive] = useState(false);
@@ -57,7 +58,7 @@ const LeftSide = () => {
           <TbArrowRight fontSize={30} />
         </button>
         <Link onClick={dontShowClick} to={"/"} className={styles.logo}>
-          <img src="./logo.png" alt="" />
+          <img src={logo} alt="logo" />
           {isActive && (
             <div className={styles.logoText}>
               <span>Dapplets Project</span>
@@ -70,7 +71,10 @@ const LeftSide = () => {
             to={el.path}
             key={el.path}
             className={cn(styles.nav, {
-              [styles.active]: pathname === el.path,
+              [styles.active]:
+                pathname === el.path ||
+                pathname.split("/").filter(Boolean)[0] ===
+                  el.path.split("/").filter(Boolean)[0],
             })}
           >
             <img src={el.icon} alt={el.icon} />

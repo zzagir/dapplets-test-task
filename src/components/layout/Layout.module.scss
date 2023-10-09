@@ -1,7 +1,7 @@
 .layout {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   background-image: url("/bg-2.png");
   background-position: top;
   background-repeat: repeat-y;
@@ -10,4 +10,10 @@
   min-height: 100vh;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.05);
+}
+
+@media screen and (max-width: 1200px) {
+  .layout {
+    flex-direction: column;
+  }
 }

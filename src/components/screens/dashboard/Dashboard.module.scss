@@ -35,7 +35,13 @@
     top: 10px;
     z-index: 2;
     background: #fff;
+    height: 56px;
   }
+}
+
+.info {
+  font-weight: 700 !important;
+  color: #2a2a2a !important;
 }
 
 .id {
@@ -102,7 +108,7 @@
   background: #0085ff;
   padding: 6px 20px;
   gap: 10px;
-  color: #fff;
+  color: #fff !important;
   text-align: center;
   font-size: 12px;
   font-weight: 500;

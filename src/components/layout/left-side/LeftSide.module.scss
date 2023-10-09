@@ -145,3 +145,72 @@
     backdrop-filter: blur(15px);
   }
 }
+@keyframes fadeInThree {
+  0% {
+    border-bottom: 3px solid transparent;
+    border-left: 1px solid transparent;
+    border-top: 1px solid transparent;
+    border-right: 1px solid transparent;
+  }
+  100% {
+    border-bottom: 3px solid #0085ff;
+    border-left: 1px solid #fff;
+    border-top: 1px solid #fff;
+    border-right: 1px solid #fff;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%),
+      rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .leftside {
+    width: 100%;
+    background: linear-gradient(180deg, rgba(185, 251, 255, 0.2) 0%, rgba(227, 220, 255, 0.2) 100%);
+    backdrop-filter: blur(15px);
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    transition: all 0.2s linear;
+    border-right: 1px solid #fff;
+    justify-content: center;
+    position: fixed;
+    z-index: 4;
+  }
+
+  .sticky {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    position: relative;
+    top: 0;
+  }
+
+  .activeButton {
+    margin: 0;
+  }
+
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+  .active {
+    border-bottom: 3px solid #0085ff !important;
+    border-left: 1px solid #fff !important;
+    border-top: 1px solid #fff !important;
+    border-right: 1px solid #fff !important;
+
+    animation: fadeInThree 0.3s linear;
+  }
+  .nav {
+    margin: 0;
+    padding: 30px 20px;
+    border-bottom: 3px solid transparent;
+    border-left: 1px solid transparent;
+    border-top: 1px solid transparent;
+    border-right: 1px solid transparent;
+  }
+  .logo {
+    margin: 0;
+  }
+}
